@@ -16,7 +16,7 @@
     if (Hls.isSupported()) {
       var video = document.getElementById("myVideo");
       var hls = new Hls({
-  liveSyncDuration: 4,
+  liveSyncDuration: 2,
 });
       hls.loadSource(url);
       hls.attachMedia(video);
