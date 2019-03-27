@@ -1,0 +1,830 @@
+$background: #1D1E21;
+$section: #242528;
+$hi: #F5F7FB;
+$hi_dark: #F3F6FB;
+
+$em: #3C3A3E;
+$em_hov: #535155;
+$font: #F9FBFF;
+$fire: #FF895C;
+$dark_fire: #F7703D;
+
+$blue: #4264fb;
+
+html {
+  width: 100vw;
+  margin-left: 10px;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.test {
+  width: 400px;
+  animation: float 4s ease-in-out infinite;
+}
+
+*:focus {
+    outline: none;
+}
+
+@keyframes float {
+  0% {transform: rotate(-4deg)}
+  60% {transform: rotate(2deg)}
+  100% {transform: rotate(-4deg);}
+}
+
+.add_background {
+  background: $background;
+  &.light {
+    background: $font;
+  }
+}
+
+body {
+  background: $background;
+  font-family: Ubuntu;
+  color: $font;
+  overflow-x: hidden;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background 0.3s ease-in-out;
+  &.light {
+    background: $font;
+  }
+}
+
+video {
+  min-height: 100vh;
+  min-width: 100vw;
+  width: auto;
+  height: auto;
+  position: absolute;
+  z-index: -2;
+  -webkit-transform: translate3d(0,0,-2);
+  overflow: hidden;
+  // @media (max-width: 700px) {
+  //   display: none;
+  // }
+}
+.shade {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  -webkit-transform: translate3d(0,0,0);
+  background: #1D1E21E0;
+  // @media (max-width: 700px) { display: none; }
+  transition: background 0.3s ease-in-out;
+  &.light { background: #F9FBFFE0; }
+}
+
+a {
+  &:link, &:active, &:visited, &:focus {
+    text-decoration: none;
+    color: $font;
+    cursor: pointer;
+    font-weight: 400;
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}
+
+// body::-webkit-scrollbar-track {
+//   background: none;
+// }
+// .column::-webkit-scrollbar-track {
+//   background: none;
+// }
+// body {
+//   &::-webkit-scrollbar { background: none }
+//   &::-webkit-scrollbar-corner { background: none }
+//   &::-webkit-scrollbar-track { background: none }
+//   &::-webkit-scrollbar-thumb {
+//     border-radius: 2px;
+//     background-color: $em;
+//   }
+//   &.light {
+//     &::-webkit-scrollbar-thumb { background-color: $hi_dark; }
+//   }
+// }
+.column {
+  &::-webkit-scrollbar { background: none }
+  &::-webkit-scrollbar-corner { background: none }
+  &::-webkit-scrollbar-track { background: none }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: $em;
+  }
+  &.light {
+    &::-webkit-scrollbar-thumb { background-color: $hi_dark; }
+  }
+}
+.nav-content::-webkit-scrollbar-track {
+  background: none;
+}
+.nav-content {
+  &::-webkit-scrollbar { background: none }
+  &::-webkit-scrollbar-corner { background: none }
+  &::-webkit-scrollbar-track { background: none }
+  &::-webkit-scrollbar-thumb {
+    background: none;
+  }
+  &.light {
+    &::-webkit-scrollbar-thumb { background: none }
+  }
+}
+
+
+
+
+.gray {
+  color: $em; cursor: pointer; padding: 10px;
+  &.left {
+    padding-right: 5px;
+  }
+  &.light { color: $background }
+  &.expand { font-size: 40px }
+}
+
+#nav-icon3 {
+  width: 27px;
+  height: 20px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  display: block;
+  align-self: flex-end;
+  top: 0;
+  right: 0;
+  margin: 10px 20px;
+  z-index: 1000;
+  @media (max-width: 700px) {
+
+  }
+}
+
+.back {
+  color: $background;
+}
+
+#nav-icon1 span, #nav-icon3 span, #nav-icon4 span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: $font;
+  border-radius: 4px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+  &.back {
+    background: $background;
+  }
+}
+
+#nav-icon3 span:nth-child(1) {
+  top: 0px;
+}
+
+#nav-icon3 span:nth-child(2),#nav-icon3 span:nth-child(3) {
+  top: 9px;
+}
+
+#nav-icon3 span:nth-child(4) {
+  top: 18px;
+}
+
+#nav-icon3.open span:nth-child(1) {
+  top: 9px;
+  width: 0%;
+  left: 50%;
+  &.light {
+    background: $font;
+  }
+}
+
+#nav-icon3.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  &.light {
+    background: $font;
+  }
+}
+
+#nav-icon3.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  &.light {
+    background: $font;
+  }
+}
+
+#nav-icon3.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+  &.light {
+    background: $font;
+  }
+}
+
+.sidenav {
+    height: 30px;
+    width: 0; /* Changing this with JavaScript */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 10px;
+    &.expanded {
+      width: 400px;
+      @media (max-width: 700px) {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        position: fixed;
+        background: $background;
+        &.light {
+          background: $font;
+        }
+      }
+    }
+}
+
+/* The navigation menu links */
+.sidenav a {
+    &:link, &:hover, &:visited, &:focus {
+      color: $font;
+      text-decoration: none;
+      &.light {
+        color: $background;
+      }
+    }
+    &.nav-item {
+      padding: 10px;
+      font-weight: 400;
+      cursor: pointer;
+      &:hover {
+        font-weight: 600;
+      }
+    }
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    right: 12px;
+    margin-top: 2px;
+    transform: scale(1.4);
+    font-weight: 800;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.header-wrap {
+  align-self: flex-start;
+  width: 100vw;
+  left: 0;
+  height: 44px;
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 3;
+  //background: $background;
+  margin: 0;
+  transition: background 0.3s ease-in-out;
+  &.light {
+    //background: $font;
+  }
+  .logo-font {
+    z-index: 20;
+    margin: 0;
+    font-family: Ubuntu;
+    font-weight: 800;
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    padding: 20px;
+    &.back {
+      color: $background;
+    }
+    img {
+      height: 30px;
+      transform: translateY(7px);
+      padding-right: 5px;
+      margin: 0;
+      &.light {
+        display: none;
+      }
+      &.dark {
+        display: none;
+        &.light {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  #menu {
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+    &.open {
+      opacity: 0;
+    }
+  }
+  h4 {
+    display: inline-block;
+    align-self: center;
+    font-weight: 300;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  a {
+    display: inline-block;
+  }
+  .nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 700px) {
+      display: block;
+    }
+    .buffer {
+      display: none;
+      height: 120px;
+      @media (max-width: 700px) {
+        display: block;
+      }
+    }
+    .nav-item {
+      padding: 10px;
+      font-weight: 400;
+      cursor: pointer;
+      &:hover {
+        font-weight: 600;
+      }
+      @media (max-width: 700px) {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        margin: 20px 0;
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 40px 0 0;
+  position: relative;
+  overflow: hidden;
+  @media(max-width: 700px) {
+    background: $background;
+    position: absolute;
+    left: 0;
+    &.content {
+      top: 100vh;
+    }
+    .intro { margin-top: 80px; position: relative;}
+    h1 { max-width: 200px; width: 100%; margin: 0 auto;}
+    &.light { background: $font }
+  }
+
+  &.content {
+    display: initial;
+    position: relative;
+  }
+
+  &.main {
+    top: 0;
+    z-index: 2;
+    &.shift {
+      top: -100vh;
+    }
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 34px;
+    max-width: 240px;
+    margin: 20px auto;
+    text-align: center;
+
+    &#tagline {
+      max-width: 320px;
+      @media (max-width: 700px) {max-width: 235px;}
+    }
+    &#learnmore { margin-top: 40px }
+
+    a.fire {
+        font-weight: 300;
+        font-size: 16px;
+        max-width: 180px;
+        color: $fire;
+        transition: background 0.3s ease-in-out;
+        padding: 10px 20px;
+        background: $section;
+        border-radius: 4px;
+        transform: translateX(10px);
+        //margin: 140px auto 0 auto;
+
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .material-icons { padding-right: 10px}
+        &:hover {
+          background: $em;
+        }
+        &.light {
+          background: $fire;
+          color: $font;
+          &:hover {
+            background: $dark_fire;
+          }
+          .drone {
+            svg g#drone { fill: white;}
+
+          }
+        }
+        .drone {
+          width: 25px;
+          padding: 0 5px;
+          transform: rotate(45deg);
+          svg {
+            fill: $fire !important;
+          }
+          &#drone_dark {
+            display: inline-block;
+            &.light {
+              display: none;
+            }
+          }
+          &#drone_light {
+            display: none;
+            &.light {
+              display: inline-block;
+            }
+          }
+        }
+    }
+  }
+
+  .section-wrapper {
+    margin: 0 auto;
+    padding: 40px 0;
+    max-width: 1100px;
+    &#mission {padding-top: 180px}
+    &#contact {margin-bottom: 100px}
+  }
+
+  .section {
+   padding: 20px 0;
+   border-radius: 4px;
+   position: relative;
+
+   &.show { display: block; }
+   > * {
+     padding-left: 50px;
+     @media (max-width: 900px) {
+       padding-left: 20px;
+     }
+   }
+
+   a {
+     &:link, &:active, &:visited, &:focus {
+       text-decoration: none;
+       color: $font;
+       background: $em;
+       padding: 8px 10px;
+       border-radius: 4px;
+       margin-left: 50px;
+       cursor: pointer;
+       font-weight: 400;
+       transition: background 0.3s ease-in-out;
+       &:hover {
+         font-weight: 600;
+         background: $em_hov;
+       }
+     }
+   }
+
+   h1 {
+     text-align: left;
+     font-weight: 600;
+     font-size: 36px;
+     margin: 30px 0;
+   }
+
+   h2 {
+     font-size: 24px;
+     font-weight: 400;
+     text-align: left;
+     margin: initial;
+     max-width: initial;
+   }
+
+   .placeholder {
+     width: calc(100% - 100px);
+     height: 250px;
+     background: $background;
+     margin: 20px 50px;
+     padding: 0;
+     border-radius: 4px;
+     &.light {
+       background: $hi_dark;
+     }
+   }
+
+   p {
+     font-size: 16px;
+     line-height: 36px;
+     font-family: Ubuntu;
+     font-weight: 300;
+     width: calc(100% - 120px);
+     transition: font-style 0.5s ease-in-out;
+     em {
+       text-decoration: none;
+       color: $fire;
+       font-weight: 300;
+       font-style: normal;
+     }
+
+     .fire {
+       margin: 0;
+       display: inline-block;
+       max-width: 200px;
+       font-size: 16px;
+       color: $fire;
+       transition: background 0.3s ease-in-out;
+       padding: 9px 20px;
+       background: $section;
+       border-radius: 4px;
+       cursor: pointer;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       .material-icons { padding-right: 10px}
+       font-weight: 300;
+       &:hover {
+         background: $em;
+         font-weight: 300;
+       }
+       &.light {
+         background: $fire;
+         color: $font;
+         &:hover {
+           background: $dark_fire;
+         }
+         .drone {
+           svg g#drone { fill: white;}
+
+         }
+       }
+       .drone {
+         width: 25px;
+         padding: 0 5px;
+         transform: rotate(45deg);
+         svg {
+           fill: $fire !important;
+         }
+
+       }
+     }
+
+      @media (max-width: 900px) {
+        width: calc(100% - 40px);
+      }
+   }
+
+   .row {
+     width: calc(100% - 100px);
+     overflow: auto;
+     margin-left: -10px;
+
+
+     .column {
+       border-radius: 4px;
+       overflow: scroll;
+       background: $section;
+       width: calc(50% - 80px);
+       float: left;
+       margin: 10px;
+       padding: 30px;
+       p {
+         width: 100%;
+       }
+       &.light {
+         background: $hi_dark;
+       }
+     }
+     @media (max-width: 1300px) {
+       width: calc(100% - 40px);
+       margin-left: -10px;
+     }
+     @media (max-width: 700px) {
+       width: calc(100% - 40px);
+       margin-left: 0;
+       .column {
+         width: calc(100% - 60px);
+         margin: 0;
+       }
+     }
+   }
+
+   .member {
+     background: $section;
+     padding-bottom: 20px;
+     padding-top: 20px;
+     width: calc(100%);
+     padding: 0;
+     margin: 0;
+     h2 {
+       text-align: center;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       &.arrow {
+         padding: 10px 0;
+       }
+     }
+     &.light {
+       background: $hi_dark;
+     }
+     .info {
+       padding: 20px 0 0 0;
+     }
+     p {
+       text-align: left;
+       text-justify: inter-word;
+       width: 100%;
+       padding: 0;
+       margin: 0;
+       @media (max-width: 1200px) {
+         padding: 0 20px;
+       }
+     }
+
+     @media (max-width: 1200px) {
+       width: calc(100%);
+
+     }
+
+   }
+
+   .team {
+     height: auto;
+     overflow: auto;
+     margin-left: -10px;
+     .member-wrapper {
+       border-radius: 4px;
+       width: calc(50% - 80px);
+       float: left;
+       margin: 10px;
+       @media (max-width: 1200px) {
+         width: calc(50% - 25px);
+         margin: 2.5px;
+       }
+       @media (max-width: 900px) {
+         margin-left: 10px;
+
+         width: calc(100% - 40px);
+       }
+       &:hover {
+         p {
+           padding: 0;
+           display: block;
+         }
+       }
+     }
+   }
+
+   .screen {
+     width: 100%;
+     padding-top: 30px;
+     padding-bottom: 30px;
+   }
+
+   .photo {
+     width: 200px;
+     height: 200px;
+     border-radius: 4px;
+     overflow: hidden;
+     margin: 0 auto;
+     padding-top: 10px;
+     img {
+       width: 100%;
+       height: auto;
+     }
+   }
+
+   .elsewhere {
+     width: calc(100% + 10px);
+     overflow: auto;
+     margin-left: -10px;
+     .else {
+       display: inline-block;
+       float: left;
+       height: 20px;
+       width: 20px;
+       float: left;
+       margin: 8px;
+
+       img {
+         width: 100%;
+         height: auto;
+       }
+     }
+   }
+
+   a {
+     &.entry {
+       width: 100%;
+       display: block;
+       overflow: auto;
+       margin: 20px 0;
+       background: transparent;
+       padding: 0;
+       &:hover {
+         background: transparent;
+         .blurb {
+           font-weight: 600;
+           background: $em_hov;
+         }
+       }
+      .blurb {
+         text-decoration: none;
+         color: $font;
+         background: $em;
+         padding: 8px 10px;
+         border-radius: 4px;
+         margin-left: 50px;
+         cursor: pointer;
+         font-weight: 400;
+         transition: background 0.3s ease-in-out;
+       }
+       p {
+         display: inline-block;
+         width: initial;
+         margin: 0;
+         padding: 0 20px;
+       }
+       > * { float: left}
+
+     }
+   }
+
+
+  }
+
+}

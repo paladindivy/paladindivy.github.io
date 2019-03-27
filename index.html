@@ -1,25 +1,52 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Paladin Drones</title>
+	<link rel="stylesheet" href="./assets/common.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,600,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link rel="shortcut icon" type="image/png" href="./assets/images/paladin_dark.png"/>
+	    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    	<script src="./assets/index.js"></script> -->
+    	<style>
+    	p.tezt1 { 
+    		padding-left: 90px;
+    	}
+
+    </style>
+</head>
+	<div class="header-wrap" id="header">
+		<h3 class="logo-font" onClick="toggleLights()"><img class="logo" src="./assets/images/paladin.png"/></h3>
+
+	</div>
+	<p align="left" class="tezt1"><font size="500">Paladin Drones</font></p>
+	<video id="myVideo" controls></video>
 
 
-<video id="myVideo" controls></video>
 
-<!-- Use HLS.js to support the HLS format in browsers. -->
-<script src="https://cdn.jsdelivr.net/npm/hls.js@0.8.2"></script>
-<script>
-  (function(){
-    // Replace with your asset's playback ID
-    var playbackId = "YOUR_PLAYBACK_ID";
-    ///var url = "https://stream.mux.com/n7k02zC6ghprVBZ9n3Fc6nwhrKHKaz9Z02.m3u8";
+	<!-- Use HLS.js to support the HLS format in browsers. -->
+	<script src="https://cdn.jsdelivr.net/npm/hls.js@0.8.2"></script>
+	<script>
+		(function(){
+	    // Replace with your asset's playback ID
+	    var playbackId = "YOUR_PLAYBACK_ID";
+	    ///var url = "https://stream.mux.com/n7k02zC6ghprVBZ9n3Fc6nwhrKHKaz9Z02.m3u8";
 
-    var url = "https://stream.mux.com/ZVSZ5V9XlbdxNvy8OpIipEVxU46eSyiK.m3u8"; //this is the new stream
+	    var url = "https://stream.mux.com/ZVSZ5V9XlbdxNvy8OpIipEVxU46eSyiK.m3u8"; //this is the new stream
 
-    // HLS.js-specific setup code
-    if (Hls.isSupported()) {
-      var video = document.getElementById("myVideo");
-      var hls = new Hls({
-  liveSyncDuration: 2,
-});
-      hls.loadSource(url);
-      hls.attachMedia(video);
-    }
-  })();
+	    // HLS.js-specific setup code
+	    if (Hls.isSupported()) {
+	    	var video = document.getElementById("myVideo");
+	    	var hls = new Hls({
+	    		liveSyncDuration: 2,
+	    	});
+	    	hls.loadSource(url);
+	    	hls.attachMedia(video);
+	    }
+	})();
 </script>
+</html>
