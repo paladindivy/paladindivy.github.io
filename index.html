@@ -44,6 +44,23 @@
 	    	});
 	    	hls.loadSource(url);
 	    	hls.attachMedia(video);
+	    	video.addEventListener('canplaythrough', function () {
+            var promise = video.play();
+            if (promise !== undefined) {
+                promise.catch(function(error) {
+                    console.error('Auto-play was prevented');
+                    console.error('We Show a UI element to let the user manually start playback');
+                    buttonPlay.style.display = 'block';
+                }).then(function() {
+                    console.info('Auto-play started');
+                    buttonPlay.style.display = 'none';
+                });
+            }
+}); //  Fires when the browser can play through the audio/video without stopping for buffering
+
+video.muted = 'muted';
+video.autoplay = 'autoplay';
+video.playsinline = 'true';
 	    }
 	})();
 </script>
