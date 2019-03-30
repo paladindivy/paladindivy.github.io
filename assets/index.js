@@ -1,3 +1,23 @@
+var mainText = document.getElementById("mainText");
+var submitbtn = document.getElementById("submit");
+
+function submitClick() {
+  var database = firebase.database();
+  database.ref('asdfasdf').set({
+    username: "ddd55edd",
+    email: "email",
+    profile_picture : "imageUrl"
+  });
+  //mainText.innerHTML = "newtext";
+  //window.alert("Working");
+  }
+
+var starCountRef = firebase.database().ref('asdfasdf/email');
+  starCountRef.on('child_changed', function(snap) {
+    //mainText.value(snap.val().text);
+    window.alert("snap.val().text");
+  });
+
 function toggleNav() {
   if ($('#nav-icon3').hasClass("open")) {
     $(".sidenav").removeClass('expanded');
