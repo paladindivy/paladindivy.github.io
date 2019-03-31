@@ -50,7 +50,12 @@ video {
   /*position: absolute;
   z-index: -2;
   -webkit-transform: translate3d(0, 0, -2);
-  overflow: hidden;*/ }
+  overflow: hidden;*/}
+
+
+.offlineStuff {
+  padding-top: 50px;
+}
 
 .videoWrapper iframe {
   position: absolute;

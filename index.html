@@ -35,7 +35,8 @@
 		<h3 class="logo-font" onClick="toggleLights()"><img class="logo" src="./assets/images/paladin.png"/><img class="logo dark" src="./assets/images/paladin_dark.png"/>Paladin</h3>
 
 	</div>
-	<video id="myVideo" controls></video>
+	<img src="./assets/images/The Video Stream Is Offline.png" class = "offlineStuff" id = "offlinePNG" hidden>
+	<video id="myVideo" controls hidden></video>
 
 	<p id="mainText">asdfasdf</p>
 	<button id="submit" onclick="submitClick()"></button>
@@ -46,37 +47,7 @@
 	<script>
 		(function(){
 	    // Replace with your asset's playback ID
-	    var playbackId = "YOUR_PLAYBACK_ID";
-	    ///var url = "https://stream.mux.com/n7k02zC6ghprVBZ9n3Fc6nwhrKHKaz9Z02.m3u8";
-
-	    var url = "https://stream.mux.com/ZVSZ5V9XlbdxNvy8OpIipEVxU46eSyiK.m3u8"; //this is the new stream
-
-	    // HLS.js-specific setup code
-	    if (Hls.isSupported()) {
-	    	var video = document.getElementById("myVideo");
-	    	var hls = new Hls({
-	    		liveSyncDuration: 2,
-	    	});
-	    	hls.loadSource(url);
-	    	hls.attachMedia(video);
-	    	video.addEventListener('canplaythrough', function () {
-            var promise = video.play();
-            if (promise !== undefined) {
-                promise.catch(function(error) {
-                    console.error('Auto-play was prevented');
-                    console.error('We Show a UI element to let the user manually start playback');
-                    buttonPlay.style.display = 'block';
-                }).then(function() {
-                    console.info('Auto-play started');
-                    buttonPlay.style.display = 'none';
-                });
-            }
-}); //  Fires when the browser can play through the audio/video without stopping for buffering
-
-video.muted = 'muted';
-video.autoplay = 'autoplay';
-video.playsinline = 'true';
-	    }
+	    
 	})();
 </script>
 </html>
