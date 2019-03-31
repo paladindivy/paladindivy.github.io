@@ -1,4 +1,3 @@
-var mainText = document.getElementById("mainText");
 //var submitbtn = document.getElementById("submit");
 
 window.onload = function() {
