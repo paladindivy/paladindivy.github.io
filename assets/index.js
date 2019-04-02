@@ -43,6 +43,8 @@ function initVideo() {
 
 function initFirebase() {
   var ifOnline = firebase.database().ref('Drone/Buster3/isOnline');
+  var destinationName = document.getElementById("DESTINATION");
+  var scriptName = document.getElementById("SCRIPT");
   ifOnline.on('value', function(snap) {
   //mainText.value(snap.val().text);
     var liveStream = document.getElementById("myVideo");
@@ -53,12 +55,14 @@ function initFirebase() {
         //window.alert(liveStream.duration);
         liveStream.style.display = "none";
         offlineImage.style.display = "block";
+        scriptName.style.display = "none";
       } catch (err) {
         window.alert(err);
       }
     } else {
       offlineImage.style.display = "none";
       liveStream.style.display = "block";
+      scriptName.style.display = "block";
       initVideo();
     }
   
@@ -73,6 +77,23 @@ function initFirebase() {
         location.reload();
       }
   });
+  try {
+    var destNameChanger = firebase.database().ref('Drone/Buster3');
+    destNameChanger.on('value', function(snap3) {
+      try {
+          if (snap3.child("destinationName").val()!=null) {
+            //window.alert(snap3.child("destinationName"));
+            destinationName.innerHTML = snap3.child("destinationName").val();
+          } else {
+            destinationName.innerHTML = "Nowhere";
+          }
+        } catch (err) {
+          //window.alert(err);
+        }
+    });
+  } catch (err2) {
+    //window.alert(err2);
+  }
 }
 
 function submitClick() {
