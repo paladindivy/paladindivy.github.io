@@ -49,7 +49,8 @@ function initFirebase() {
   //mainText.value(snap.val().text);
     var liveStream = document.getElementById("myVideo");
     var offlineImage = document.getElementById("offlinePNG");
-    if (snap.val() == false) {
+    // if (snap.val() == false) {
+    if (false) {
       //window.alert(snap.val());
       try {
         //window.alert(liveStream.duration);
